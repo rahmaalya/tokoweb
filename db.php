@@ -1,8 +1,9 @@
 <?php
-    $hostname = 'localhost';
+    $hostname= 'localhost';
     $username = 'root';
     $password = '';
-    $dbname   = 'tokoweb';
+    $dbname= 'tokoweb';
 
-    $conn = mysqli_connect ($hostname, $username, $password, $dbname) or die ('gagal terhubung kedatabase')
+    $conn = mysqli_connect($hostname, $username, $password, $dbname) or die ('Gagal terhubung ke database');
+
 ?>

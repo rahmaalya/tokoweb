@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include 'db.php';
     if($_SESSION['status_login'] != true) {
         echo '<script>window.location="login.php"</script>';
     }
@@ -31,10 +32,30 @@
    <!--content-->
    <div class="section">
     <div class="container">
-        <h3>Dashboard</h3>
+        <h3>Profil</h3>
         <div class="box">
-        <h4>Selamat Datang</h4>
+            <form action="" method="POST">
+                <input type="text" name="nama" placeholder="Nama kategori" class="input-control"  required>
+                <input type="submit" name="submit" value="submit" class="btn">
+            </form>
+            <?php
+                if(isset($_POST['submit'])) {
+
+                    $nama = ucwords( $_POST['nama']);
+
+                    $insert = mysqli_query($conn, "INSERT INTO tbkategori VALUE (
+                                            null, 
+                                            '".$nama."')");
+                    if($insert){
+                        echo '<script>alert("Tambah Data Berhasl")</script>';
+                        echo '<script>window.location="data-kategori.php"</script>';
+                    }else{
+                        echo 'gagal' .mysqli_error($conn);
+                    }
+                }
+            ?>
       </div>
+
      </div>
     </div>
     <!---footer--->
